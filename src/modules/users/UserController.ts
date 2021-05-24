@@ -1,6 +1,5 @@
 import { hash } from 'bcrypt';
 import { Request, Response } from 'express';
-// import yup from 'yup';
 
 import query from '../../shared/infra/knex/knex';
 
