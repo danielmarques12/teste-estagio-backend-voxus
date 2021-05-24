@@ -7,7 +7,7 @@ interface ITags {
   name: string;
 }
 
-interface IRequest {
+interface ICreatePost {
   title: string;
   content: string;
   user_id: string;
@@ -16,7 +16,7 @@ interface IRequest {
 
 class PostController {
   async create(request: Request, response: Response): Promise<Response> {
-    const { title, content, user_id, tags }: IRequest = request.body;
+    const { title, content, user_id, tags }: ICreatePost = request.body;
 
     const schema = yup.object().shape({
       title: yup.string().required().min(5).max(100),
@@ -48,6 +48,68 @@ class PostController {
     }
 
     return response.status(201).json('Post created successfully');
+  }
+
+  async index(request: Request, response: Response): Promise<Response> {
+    const posts = await query
+      .select([
+        'p.post_id',
+        'p.title',
+        'p.publication_date',
+        'u.name as author',
+      ])
+      .from({ p: 'posts' })
+      .innerJoin({ u: 'users' }, 'p.user_id', 'u.user_id');
+
+    return response.status(201).json(posts);
+  }
+
+  async show(request: Request, response: Response): Promise<Response> {
+    const { post_id } = request.params;
+
+    const post = await query
+      .select([
+        'p.title',
+        'p.content',
+        'p.publication_date',
+        'u.name as author',
+      ])
+      .from({ p: 'posts' })
+      .innerJoin({ u: 'users' }, 'p.user_id', 'u.user_id')
+      .where({ post_id });
+
+    return response.status(201).json(post);
+  }
+
+  async update(request: Request, response: Response): Promise<Response> {
+    const { title, content } = request.body;
+    const { post_id } = request.params;
+
+    const schema = yup.object().shape({
+      title: yup.string().min(5).max(100),
+      content: yup.string().required().min(100),
+    });
+
+    if (!(await schema.isValid(request.body))) {
+      return response.status(401).json({ error: 'Validation failed' });
+    }
+
+    await query('posts')
+      .update({
+        title,
+        content,
+      })
+      .where({ post_id });
+
+    return response.status(201).json('Post updated successfully');
+  }
+
+  async delete(request: Request, response: Response): Promise<Response> {
+    const { post_id } = request.params;
+
+    await query('posts').where({ post_id }).delete();
+
+    return response.status(201).json('Post deleted successfully');
   }
 }
 
