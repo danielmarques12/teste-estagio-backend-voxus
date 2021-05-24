@@ -10,18 +10,17 @@ interface ITags {
 interface ICreatePost {
   title: string;
   content: string;
-  user_id: string;
   tags?: Array<ITags>;
 }
 
 class PostController {
   async create(request: Request, response: Response): Promise<Response> {
-    const { title, content, user_id, tags }: ICreatePost = request.body;
+    const { title, content, tags }: ICreatePost = request.body;
+    const { id: user_id } = request.user;
 
     const schema = yup.object().shape({
       title: yup.string().required().min(5).max(100),
       content: yup.string().required().min(100),
-      user_id: yup.string().required(),
       tags: yup.array().of(
         yup.object().shape({
           name: yup.string().max(10),

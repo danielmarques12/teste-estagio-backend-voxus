@@ -7,7 +7,7 @@ const postController = new PostController();
 
 const postRoutes = Router();
 
-postRoutes.post('/create', postController.create);
+postRoutes.post('/create', ensureAuthenticated, postController.create);
 postRoutes.get('/index', postController.index);
 postRoutes.get('/show/:post_id', postController.show);
 postRoutes.patch(
