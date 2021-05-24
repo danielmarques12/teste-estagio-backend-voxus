@@ -16,7 +16,7 @@ export async function up(knex: Knex): Promise<void> {
       .references('post_id')
       .inTable('posts')
       .onUpdate('CASCADE')
-      .onDelete('SET NULL');
+      .onDelete('CASCADE');
 
     table
       .timestamp('created_at')

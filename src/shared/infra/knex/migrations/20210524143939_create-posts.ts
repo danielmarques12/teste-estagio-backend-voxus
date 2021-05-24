@@ -21,7 +21,7 @@ export async function up(knex: Knex): Promise<void> {
       .references('user_id')
       .inTable('users')
       .onUpdate('CASCADE')
-      .onDelete('SET NULL');
+      .onDelete('CASCADE');
 
     table
       .timestamp('updated_at')
