@@ -6,10 +6,12 @@
 
 Database model:
 <h1>
-  <img alt="Database Model" title="db-model" src=".github/db.png" width="300px" />
+  <img alt="Database Model" title="db-model" src=".github/db.png" width="1115px" height="339" />
 </h1>
 
-### Project installation guide/details:
+## Project installation guide/details:
+
+### [API]
 
 - Create a PostgreSQL database and put the credentials in the .env file (fill the other 4 variables there as well).
 
@@ -24,3 +26,11 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
 - Run yarn knex migrate:latest to create the tables in the database.
 
 - Run yarn knex seed:run to create the seeds in the database.
+
+- Run yarn dev to start the api.
+
+### [FRONT-END]
+
+- Run yarn to install the dependencies.
+
+- Run yarn start to start the server.
