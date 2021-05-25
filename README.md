@@ -4,9 +4,10 @@
 
 [Quadro do projeto no Trello](https://bit.ly/2TfwkV1)
 
+
 Database model:
 <h1>
-  <img alt="Database Model" title="db-model" src=".github/db.png" width="1115px" height="339" />
+  <img alt="Database Model" title="db-model" src=".github/db.png" width="1000px" />
 </h1>
 
 ## Project installation guide/details:
