@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { format, parseISO } from 'date-fns';
 import { api } from '../../services/api';
 import {
   Container,
@@ -10,7 +9,6 @@ import {
   RedirectPost,
   EditPost,
 } from './styles';
-import Tags from '../../components/Tags';
 import PostCard from '../../components/PostCard';
 
 export default function Home() {
