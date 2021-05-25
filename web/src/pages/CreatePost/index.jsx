@@ -56,7 +56,7 @@ export default function CreatePost() {
           <AddTagButton
             type="button"
             onClick={() => {
-              setTags(tags.concat({ name: tag }));
+              if (tags.length < 3) setTags(tags.concat({ name: tag }));
               setPost({ ...post, tags });
               setTag('');
             }}

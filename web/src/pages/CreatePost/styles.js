@@ -41,6 +41,7 @@ export const Input = styled.input`
 `;
 
 export const SubmitInput = styled(Input)`
+  margin-top: 10px;
   padding: 0;
   font-size: 20px;
   font-weight: 700;
