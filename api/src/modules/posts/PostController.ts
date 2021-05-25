@@ -77,7 +77,7 @@ class PostController {
       .innerJoin({ u: 'users' }, 'p.user_id', 'u.user_id')
       .where({ post_id });
 
-    return response.status(201).json(post);
+    return response.status(201).json(post[0]);
   }
 
   async update(request: Request, response: Response): Promise<Response> {
