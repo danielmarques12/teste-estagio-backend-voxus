@@ -13,7 +13,7 @@ export const Post = styled.div`
 
 export const Item = styled.div`
   background-color: #fff;
-  height: 150px;
+  height: 125px;
   width: 200px;
   padding: 10px;
   margin: 10px auto;
