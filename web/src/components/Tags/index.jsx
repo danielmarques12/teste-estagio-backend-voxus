@@ -7,14 +7,14 @@ export default function Tags(props) {
   const { post_id } = props;
 
   useEffect(() => {
-    api.get(`/posts/tags/${post_id}`).then((item) => setTags(item.data));
+    api.get(`/posts/tags/${post_id}`).then((item) => {
+      setTags(item.data);
+    });
   }, []);
 
   return (
     <>
-      {tags.map((tag) => (
-        <p key={tag.id}> {tag.name} </p>
-      ))}
+      <p>{tags.map((tag) => tag.name).toString()}</p>
     </>
   );
 }
