@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
 import { PostController } from '../../../../modules/posts/PostController';
+import { TagController } from '../../../../modules/posts/TagController';
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
 const postController = new PostController();
+const tagController = new TagController();
 
 const postRoutes = Router();
 
@@ -20,5 +22,7 @@ postRoutes.delete(
   ensureAuthenticated,
   postController.delete
 );
+
+postRoutes.get('/tags/:post_id', tagController.show);
 
 export { postRoutes };

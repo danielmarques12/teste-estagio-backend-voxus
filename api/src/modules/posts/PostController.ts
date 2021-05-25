@@ -52,7 +52,7 @@ class PostController {
   async index(request: Request, response: Response): Promise<Response> {
     const posts = await query
       .select([
-        'p.post_id',
+        'p.post_id as id',
         'p.title',
         'p.publication_date',
         'u.name as author',
