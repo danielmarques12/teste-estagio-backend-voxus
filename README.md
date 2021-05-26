@@ -1,8 +1,8 @@
 ## Teste para estágio de desenvolvedor back-end na Voxus
 
-[Link do projeto zipado no Google Drive](googledrive.com/link)
+[Link do projeto zipado no Google Drive](https://bit.ly/3fOYzl1)
 
-[Quadro do projeto no Trello](https://bit.ly/2TfwkV1)
+[Quadro do projeto no Trello](https://bit.ly/3wqhLw6)
 
 
 Database model:
