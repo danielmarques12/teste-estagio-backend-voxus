@@ -14,7 +14,7 @@ Database model:
 
 ### [API]
 
-- Create a PostgreSQL database and put the credentials in the .env file (fill the other 4 variables there as well).
+- Create a PostgreSQL database and put the credentials in the .env file (fill the other 4 variables there if needed).
 
 - Before perfoming any I/O operation in the database, execute the command below in your db console.
 (This will provide functions to the database to generate the uuids):
