@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   color: #000;
-  width: 35%;
+  width: 50%;
   margin: 15px auto 0 auto;
 `;
 
@@ -12,9 +12,10 @@ export const Post = styled.div`
 `;
 
 export const Item = styled.div`
+  text-align: center;
   background-color: #fff;
-  height: 125px;
-  width: 200px;
+  height: 200px;
+  width: 275px;
   padding: 10px;
   margin: 10px auto;
   border-radius: 7.5px;
@@ -23,12 +24,13 @@ export const Item = styled.div`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 85%;
 `;
 
 const ButtonModel = styled.button`
-  margin-top: 5px;
-  height: 25px;
-  width: 55px;
+  padding: 10px 12.5px;
   color: #fff;
   border-radius: 5px;
   border: #fff;

@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { format, parseISO } from 'date-fns';
 import { api } from '../../services/api';
-import { Container, Post } from './styles';
+import {
+  Container,
+  BlogPost,
+  Title,
+  Author,
+  PublicationDate,
+  Content,
+} from './styles';
 import Tags from '../../components/Tags';
 
-export default function Home({ match }) {
+export default function Post({ match }) {
   const [post, setPost] = useState([]);
   const { id: post_id } = match.params;
 
@@ -15,12 +21,17 @@ export default function Home({ match }) {
 
   return (
     <Container>
-      <Post>
-        <h2>{post.title}</h2>
-        <h3>{post.author}</h3>
+      <BlogPost>
+        <Title>{post.title}</Title>
+        <Author>
+          <span>Author:</span> {post.author}
+        </Author>
+        <PublicationDate>
+          <span>Published date:</span> {post.publication_date}
+        </PublicationDate>
         <Tags post_id={post_id} />
-        <p>{post.content}</p>
-      </Post>
+        <Content>{post.content}</Content>
+      </BlogPost>
     </Container>
   );
 }

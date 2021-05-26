@@ -14,7 +14,9 @@ export default function Tags(props) {
 
   return (
     <>
-      <p>{tags.map((tag) => tag.name).toString()}</p>
+      <p>
+        <span>Tags:</span> {tags.map((tag) => tag.name).toString()}
+      </p>
     </>
   );
 }
