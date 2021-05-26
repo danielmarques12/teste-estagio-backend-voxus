@@ -54,7 +54,9 @@ class PostController {
       .select([
         'p.post_id as id',
         'p.title',
-        'p.publication_date',
+        query.raw(
+          `to_char(p.publication_date, 'yyyy/mm/dd') as publication_date`
+        ),
         'u.name as author',
       ])
       .from({ p: 'posts' })
@@ -70,7 +72,9 @@ class PostController {
       .select([
         'p.title',
         'p.content',
-        'p.publication_date',
+        query.raw(
+          `to_char(p.publication_date, 'yyyy/mm/dd') as publication_date`
+        ),
         'u.name as author',
       ])
       .from({ p: 'posts' })
